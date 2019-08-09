@@ -1,0 +1,16 @@
+{
+  "icon": "icon.png",
+  "commands": [
+    {
+      "name": "about",
+      "identifier": "sketch-plugin-git.about-identifier",
+      "script": "./commands.js"
+    }
+  ],
+  "menu": {
+    "title": "sketch-plugin-git",
+    "items": [
+      "sketch-plugin-git.about-identifier"
+    ]
+  }
+}
