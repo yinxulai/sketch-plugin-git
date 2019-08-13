@@ -4815,10 +4815,10 @@ sketch-module-web-view@^3.1.0:
   dependencies:
     mocha-js-delegate "^0.2.0"
 
-sketch-plugin-web-window@^0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/sketch-plugin-web-window/-/sketch-plugin-web-window-0.0.3.tgz#fa69ff20686ac039a37f239b64d4a6cbf632f51c"
-  integrity sha512-V3Rm6mqQhCBhmo0Rb6nyANsSfHyQAM5IoSdLIl2hIrL5Ci+VRNZ7pfMS9YhSpHbmHHewe9P8B5R+24DxLDpfNg==
+sketch-plugin-web-window@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/sketch-plugin-web-window/-/sketch-plugin-web-window-0.0.5.tgz#1750668ca06f28bd7b17f80cb4acb5113de2d7cb"
+  integrity sha512-eKOzYzPjyWglR5pKgl+b0JMp4O1Luv8noioQCMmOyiG8/mYgtS9gWMbnpDSkrxUxk1JZJclVDJQtaB2edSvFgQ==
   dependencies:
     sketch-module-web-view "^3.1.0"
 
