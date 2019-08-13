@@ -2,14 +2,29 @@
   "icon": "icon.png",
   "commands": [
     {
+      "name": "commit",
+      "identifier": "sketch-plugin-git.commit-identifier",
+      "script": "./commands.js",
+      "handler": "commit"
+    },
+    {
+      "name": "version",
+      "identifier": "sketch-plugin-git.version-identifier",
+      "script": "./commands.js",
+      "handler": "version"
+    },
+    {
       "name": "about",
       "identifier": "sketch-plugin-git.about-identifier",
-      "script": "./commands.js"
+      "script": "./commands.js",
+      "handler": "about"
     }
   ],
   "menu": {
     "title": "sketch-plugin-git",
     "items": [
+      "sketch-plugin-git.commit-identifier",
+      "sketch-plugin-git.version-identifier",
       "sketch-plugin-git.about-identifier"
     ]
   }
