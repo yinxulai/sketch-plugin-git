@@ -17,34 +17,38 @@ export function openCurrentDocumentFolderInFinder(context) {
 // 在 Finder 中打开当前 Repositorie 的文件夹
 export function openCurrentRepositorieFolderInFinder(context) {
   const path = documentDirectoryPath(context.document)
-  const [status, message] = runBashShell(`git -C ${path} rev-parse --show-toplevel`)
+  const [status, message] = runBashShell(`
+    roowdir=\`git -C ${path} rev-parse --show-toplevel\`;
+    open $roowdir;
+  `)
+
   if (status !== 0) {
     alert('出错了', message)
     return
   }
-
-  runCommand('/usr/bin/open', path)
 }
 
+export function toolbar(context) {
+  const window = new Window(context, { title: "", height: 80, width: 340, frame: false })
+  window.load(rootview)
+  window.setLocationHash('toolbar')
+}
 
 export function commit(context) {
-  const window = new Window(context, { title: "提交修改", height: 300, width: 280, frame: false })
+  const window = new Window(context, { title: "提交修改", height: 310, width: 260, frame: false })
   window.load(rootview)
-
   window.setLocationHash('commit')
 }
 
-export function version(context) {
+export function history(context) {
   const window = new Window(context, { title: "版本管理", frame: false })
   window.load(rootview)
-
-  window.setLocationHash('commit')
+  window.setLocationHash('history')
 }
 
 export function about(context) {
   const window = new Window(context, { title: "关于作者", frame: false })
   window.load(rootview)
-
   window.setLocationHash('commit')
 }
 

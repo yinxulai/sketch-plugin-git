@@ -14,6 +14,12 @@
       "handler": "openCurrentRepositorieFolderInFinder"
     },
     {
+      "name": "打开工具栏",
+      "identifier": "sketch-plugin-git.open-toolbar-identifier",
+      "script": "./commands.js",
+      "handler": "toolbar"
+    },
+    {
       "name": "保存修改",
       "identifier": "sketch-plugin-git.commit-identifier",
       "script": "./commands.js",
@@ -21,9 +27,9 @@
     },
     {
       "name": "查看历史",
-      "identifier": "sketch-plugin-git.version-identifier",
+      "identifier": "sketch-plugin-git.history-identifier",
       "script": "./commands.js",
-      "handler": "version"
+      "handler": "history"
     },
     {
       "name": "关于",
@@ -35,10 +41,11 @@
   "menu": {
     "title": "sketch-plugin-git",
     "items": [
+      "sketch-plugin-git.open-toolbar-identifier",
       "sketch-plugin-git.open-current-document-folder-in-finder-identifier",
       "sketch-plugin-git.open-current-repositorie-folder-in-finder-identifier",
       "sketch-plugin-git.commit-identifier",
-      "sketch-plugin-git.version-identifier",
+      "sketch-plugin-git.history-identifier",
       "sketch-plugin-git.about-identifier"
     ]
   }

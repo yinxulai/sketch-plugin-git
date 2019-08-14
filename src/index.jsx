@@ -7,6 +7,7 @@ import Header from './components/header'
 import About from './pages/about'
 import Commit from './pages/commit'
 import History from './pages/history'
+import Toolbar from './pages/toolbar'
 
 import * as styles from './style.less'
 
@@ -24,6 +25,7 @@ export default class App extends React.Component {
               <Route path="/about" component={About} />
               <Route path="/commit" component={Commit} />
               <Route path="/history" component={History} />
+              <Route path="/toolbar" component={Toolbar} />
             </Route>
           </HashRouter>
         </div>
