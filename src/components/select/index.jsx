@@ -1,5 +1,7 @@
 import * as React from 'react'
 import * as styles from './style.less'
+import autobind from 'autobind-decorator'
+import { branchs } from '../../controller/git'
 
 export default class Select extends React.Component {
   constructor(props) {
@@ -7,17 +9,61 @@ export default class Select extends React.Component {
     this.componentID = randomString(15)
   }
 
+  @autobind
+  handleChange(event) {
+    const { onChange } = this.props
+    onChange && onChange(event.currentTarget.value)
+  }
+
   render() {
-    const { children, data, ...props } = this.props
+    const { children, items, render, ...props } = this.props
     return (
       <div className={styles.select}>
-        <select {...props} size="1" defaultValue="tip">
+        <select {...props} size="1" defaultValue="tip" onChange={this.handleChange}>
           <option value="tip" disabled hidden>{children}</option>
           {
-            data.map(item => (<option key={item.value} value={item.value}>{item.text}</option>))
+            items.map(item =>
+              render
+                ? render(item)
+                : (<option key={item} value={item}>{item}</option>)
+            )
           }
         </select>
       </div>
+    )
+  }
+}
+
+
+export class BranchSelect extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { branchs: [] }
+    this.componentID = randomString(15)
+  }
+
+  componentDidMount() {
+    branchs().then(branchs => {
+      this.setState({ ...this.state, branchs })
+    })
+  }
+
+  @autobind
+  handleChange(event) {
+    const { onChange } = this.props
+    onChange(event.currentTarget.value)
+  }
+
+  render() {
+    const { branchs } = this.state
+
+    return (
+      <Select
+        items={branchs}
+        render={item => <option key={item.key} value={item.key}>{item.name}</option>}
+      >
+        选择分支
+      </Select>
     )
   }
 }

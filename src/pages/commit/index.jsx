@@ -1,17 +1,28 @@
 import * as React from 'react'
-import Select from '../../components/select'
 import Button from '../../components/button'
 import Checkbox from '../../components/checkbox'
+import { BranchSelect } from '../../components/select'
 import Input, { Textarea } from '../../components/input'
 
 import * as styles from './style.less'
 
 export default class Commit extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      branch: null,
+      title: null,
+      context: null,
+      isPreview: false,
+      isMarked: false
+    }
+  }
+
   render() {
     return (
       <div className={styles.containerFluid}>
         <div className={styles.fromItem}>
-          <Select data={[{ value: 'master', text: 'mastr' }]}>选择环境</Select>
+          <BranchSelect>选择环境</BranchSelect>
         </div>
         <div className={styles.fromItem}>
           <Input type="text" placeholder="请输入标题" />
