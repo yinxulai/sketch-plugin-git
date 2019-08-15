@@ -2,12 +2,7 @@ module.exports = config => {
   config.resolve.extensions = ['.js', '.jsx', '.ts', '.tsx'];
 
   config.module.rules.push({
-    test: /\.tsx?$/,
-    loaders: ['ts-loader']
-  })
-
-  config.module.rules.push({
-    test: /\.ts?$/,
+    test: /\.(ts)|(tsx)$/,
     loaders: ['ts-loader']
   })
 
