@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as styles from './style.less'
 import autobind from 'autobind-decorator'
-import { branchs, Branch } from '../../controller/response'
+import { branchs, Branch } from '../../controller/repositorie'
 
 // type Branch = {
 //   id: string,
