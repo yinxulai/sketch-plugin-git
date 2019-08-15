@@ -3,12 +3,6 @@ import * as styles from './style.less'
 import autobind from 'autobind-decorator'
 import { branchs, Branch } from '../../controller/repositorie'
 
-// type Branch = {
-//   id: string,
-//   name: string,
-//   current: boolean
-// }
-
 export interface Props<T> extends Omit<React.InputHTMLAttributes<HTMLSelectElement>, 'onChange'> {
   items: T[]
   render?: (data: T) => HTMLOptionElement

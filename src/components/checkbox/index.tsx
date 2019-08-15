@@ -1,7 +1,9 @@
 import * as React from 'react'
 import * as styles from './style.less'
+import autobind from 'autobind-decorator'
 
-export interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface Props extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'onChange'> {
+  onChange?: (value: boolean, event: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 export default class Checkbox extends React.Component<Props> {
@@ -9,12 +11,20 @@ export default class Checkbox extends React.Component<Props> {
     super(props)
   }
 
+  @autobind
+  handleChange(event: React.ChangeEvent<HTMLInputElement>) {
+    const { onChange } = this.props
+    onChange && onChange(event.currentTarget.checked, event)
+  }
+
+
   render() {
-    const { children, ...props } = this.props
     const componentID = randomString(15)
+    const { children, onChange, ...props } = this.props
+
     return (
       <div className={styles.checkbox}>
-        <input className={styles.input} id={componentID} type="checkbox" {...props} hidden />
+        <input className={styles.input} onChange={this.handleChange} id={componentID} type="checkbox" {...props} hidden />
         <label className={styles.advice} htmlFor={componentID} ></label>
         <label className={styles.title} htmlFor={componentID} >{children}</label>
       </div>
