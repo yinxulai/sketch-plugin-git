@@ -1,8 +1,13 @@
 import * as React from 'react'
 import * as styles from './style.less'
 import autobind from 'autobind-decorator'
-import { branchs, Branch } from '../../controller/git'
+import { branchs, Branch } from '../../controller/response'
 
+// type Branch = {
+//   id: string,
+//   name: string,
+//   current: boolean
+// }
 
 export interface Props<T> extends Omit<React.InputHTMLAttributes<HTMLSelectElement>, 'onChange'> {
   items: T[]

@@ -4,7 +4,7 @@ import * as styles from './style.less'
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 }
 
-export default class Input extends React.Component<InputProps> {
+export default class Input extends React.Component<InputProps, null> {
   render() {
     return (
       <input className={styles.input} {...this.props}></input>

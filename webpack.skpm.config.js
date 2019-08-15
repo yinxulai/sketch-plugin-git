@@ -1,5 +1,5 @@
 module.exports = config => {
-  config.resolve.extensions = ['.js', '.jsx', '.ts', '.tsx',];
+  config.resolve.extensions = ['.js', '.jsx', '.ts', '.tsx'];
 
   config.module.rules.push({
     test: /\.tsx?$/,

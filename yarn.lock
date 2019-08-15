@@ -852,6 +852,13 @@
     loader-utils "^1.2.3"
     schema-utils "^0.4.5"
 
+"@types/autobind-decorator@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@types/autobind-decorator/-/autobind-decorator-2.1.0.tgz#f8ffd384c1080635a1575b30db2220ac40b0d3dc"
+  integrity sha512-OOS4XPWJEs3MSuya0wy2om9T//PIapkyXdkCqf1t9Rlh3yDs2/wSj6LdmHNWX9ZtxR+DoOcMnWb7LQrkJFT2uQ==
+  dependencies:
+    autobind-decorator "*"
+
 "@types/classnames@^2.2.9":
   version "2.2.9"
   resolved "https://registry.yarnpkg.com/@types/classnames/-/classnames-2.2.9.tgz#d868b6febb02666330410fe7f58f3c4b8258be7b"
@@ -1326,7 +1333,7 @@ author-regex@^1.0.0:
   resolved "https://registry.yarnpkg.com/author-regex/-/author-regex-1.0.0.tgz#d08885be6b9bbf9439fe087c76287245f0a81450"
   integrity sha1-0IiFvmubv5Q5/gh8dihyRfCoFFA=
 
-autobind-decorator@^2.4.0:
+autobind-decorator@*, autobind-decorator@^2.4.0:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/autobind-decorator/-/autobind-decorator-2.4.0.tgz#ea9e1c98708cf3b5b356f7cf9f10f265ff18239c"
   integrity sha512-OGYhWUO72V6DafbF8PM8rm3EPbfuyMZcJhtm5/n26IDwO18pohE4eNazLoCGhPiXOCD0gEGmrbU3849QvM8bbw==

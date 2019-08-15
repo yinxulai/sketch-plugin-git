@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { currentVersions, isRepositorie, repositoriePath, branchs } from '../../controller/git'
+import { currentVersions, isRepositorie, repositoriePath, branchs } from '../../controller/response'
 
 export default class History extends React.Component {
   componentDidMount() {
