@@ -7,7 +7,7 @@ import Input, { Textarea } from '../../components/input'
 import * as styles from './style.less'
 
 export default class Commit extends React.Component {
-  constructor(props) {
+  constructor(props: any) {
     super(props)
     this.state = {
       branch: null,

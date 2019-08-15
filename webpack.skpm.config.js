@@ -1,21 +1,31 @@
 module.exports = config => {
-  config.resolve.extensions = ['.js', '.jsx'];
+  config.resolve.extensions = ['.js', '.jsx', '.ts', '.tsx',];
+
+  config.module.rules.push({
+    test: /\.tsx?$/,
+    loaders: ['ts-loader']
+  })
+
+  config.module.rules.push({
+    test: /\.ts?$/,
+    loaders: ['ts-loader']
+  })
 
   config.module.rules.push({
     test: /\.(html)$/,
     use: [{
-        loader: "@skpm/extract-loader",
+      loader: "@skpm/extract-loader",
+    },
+    {
+      loader: "html-loader",
+      options: {
+        attrs: [
+          'img:src',
+          'link:href'
+        ],
+        interpolate: true,
       },
-      {
-        loader: "html-loader",
-        options: {
-          attrs: [
-            'img:src',
-            'link:href'
-          ],
-          interpolate: true,
-        },
-      },
+    },
     ]
   })
 

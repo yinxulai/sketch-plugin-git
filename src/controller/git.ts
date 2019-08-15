@@ -1,12 +1,12 @@
 import { documentPath } from "./document"
 
-async function runGit(params) {
+async function runGit(params: string): Promise<[number, string]> {
   const dirPath = await repositoriePath()
   return await window.runBashShell(`git -C ${dirPath.replace(/[\r\n]/g, "")} ${params}`)
 }
 
 // 是否是一个有效的 git 仓库
-export async function isRepositorie() {
+export async function isRepositorie(): Promise<boolean> {
   const [status, _] = await runGit(`status`)
   if (status !== 0) {
     return false
@@ -15,17 +15,17 @@ export async function isRepositorie() {
 }
 
 // 仓库路径
-export async function repositoriePath() {
-  const dirPath = await documentDirectoryPath()
+export async function repositoriePath(): Promise<string> {
+  const dirPath = await window.documentDirectoryPath()
   const [status, message] = await window.runBashShell(`git -C ${dirPath} rev-parse --show-toplevel`)
   if (status !== 0) {
     throw message
   }
-  return message
+  return message as string
 }
 
 // 获取当前文档的版本历史
-export async function currentVersions() {
+export async function currentVersions(): Promise<any> {
   const filePath = await documentPath()
   const [status, message] = await runGit(`log ${filePath}`)
   if (status !== 0) {
@@ -33,12 +33,12 @@ export async function currentVersions() {
     throw message
   }
 
-  return message
+  return message as string
 }
 
 // 创建一个新的 Commit
-export async function createCommit(options) {
-  const { title, message, branch } = options
+export async function createCommit(options: any): Promise<any> {
+  const { title, message } = options
 
   const filePath = await documentPath()
   await runGit(`add ${filePath}`)
@@ -55,14 +55,14 @@ export async function createCommit(options) {
 }
 
 // 创建一个新的分支
-export async function createBranch() {
+export async function createBranch(): Promise<any> {
   if (!window || !window.runBashShell) {
     return []
   }
 
   const filePath = await documentPath()
-  const dirPath = await documentDirectoryPath()
-  const [status, rawData] = await window.runBashShell(`git log ${path}`)
+  const dirPath = await window.documentDirectoryPath()
+  const [status, rawData] = await window.runBashShell(`git -C ${dirPath} log ${filePath}`)
   if (status !== 0) {
     // 执行错误
     throw rawData
@@ -71,8 +71,14 @@ export async function createBranch() {
   console.log(rawData)
 }
 
+export type Branch = {
+  id: string,
+  name: string,
+  current: boolean
+}
+
 // 获取全部分支
-export async function branchs() {
+export async function branchs(): Promise<Branch[]> {
   const [status, rawData] = await runGit(`branch`)
   if (status !== 0) {
     // 执行错误
@@ -83,11 +89,11 @@ export async function branchs() {
     if (branch) {
       const branchItem = branch.replace(/\ +/g, "")
       if (branchItem[0] === "*") {
-        const key = branchItem.substring(1)
-        return { key, name: key, current: true }
+        const id = branchItem.substring(1)
+        return { id, name: id, current: true }
       }
-      return { key: branchItem, name: branchItem, current: false }
+      return { id: branchItem, name: branchItem, current: false }
     }
-  }).filter(Boolean)
+  }).filter(Boolean) as any
 }
 
