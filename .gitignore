@@ -4,6 +4,7 @@ workspaces
 
 # npm
 .npm
+lib
 node_modules
 npm-debug.log
 
