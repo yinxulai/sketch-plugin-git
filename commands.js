@@ -1,9 +1,9 @@
-import Window from 'sketch-plugin-web-window/src/index'
+import Window from 'sketch-plugin-web-window'
 
 // 借用 sketch-plugin-web-window superpower
-import { alert } from 'sketch-plugin-web-window/src/superpower/utils'
-import { runBashShell, runCommand } from 'sketch-plugin-web-window/src/superpower/command'
-import { documentDirectoryPath } from 'sketch-plugin-web-window/src/superpower/document'
+import { alert } from 'sketch-plugin-web-window'
+import { runBashShell, runCommand } from 'sketch-plugin-web-window'
+import { documentDirectoryPath } from 'sketch-plugin-web-window'
 
 const rootview = require("./src/index.html")
 
@@ -29,19 +29,19 @@ export function openCurrentRepositorieFolderInFinder(context) {
 }
 
 export function toolbar(context) {
-  const window = new Window(context, { title: "", height: 80, width: 340, frame: false })
+  const window = new Window(context, { title: "", height: 80, width: 340, resizable: false, frame: false })
   window.load(rootview)
   window.setLocationHash('toolbar')
 }
 
 export function commit(context) {
-  const window = new Window(context, { title: "提交修改", height: 310, width: 260, frame: false })
+  const window = new Window(context, { title: "提交修改", height: 310, width: 260, resizable: false, frame: false })
   window.load(rootview)
   window.setLocationHash('commit')
 }
 
 export function history(context) {
-  const window = new Window(context, { title: "版本管理", frame: false })
+  const window = new Window(context, { title: "查看历史", height: 460, width: 260, resizable: false, frame: false })
   window.load(rootview)
   window.setLocationHash('history')
 }

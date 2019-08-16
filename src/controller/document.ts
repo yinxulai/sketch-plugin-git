@@ -23,11 +23,13 @@ export async function documentName(): Promise<string> {
 }
 
 // 导出 Artboards
-export async function exportArtboards() {
-
+// 返回导出的资源路径
+export async function exportArtboards(): Promise<string[]> {
+  return Promise.resolve([])
 }
 
 // 导出预览
-export async function exportPreview() {
-
+// 返回导出的资源路径
+export async function exportPreview(): Promise<string[]> {
+  return Promise.resolve([])
 }

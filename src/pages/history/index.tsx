@@ -1,18 +1,47 @@
 import * as React from 'react'
-import { currentVersions, isRepositorie, repositoriePath, branchs } from '../../controller/repositorie'
+import autobind from 'autobind-decorator'
+import Button from '../../components/button'
+import Version from '../../components/version'
+import { currentVersions, TVersion } from '../../controller/repositorie'
 
-export default class History extends React.Component {
+import * as styles from './style.less'
+
+type HistoryState = {
+  versions: TVersion[]
+}
+
+export default class History extends React.Component<any, HistoryState> {
+  constructor(props: any) {
+    super(props)
+    this.state = {
+      versions: []
+    }
+  }
+
+  @autobind
+  async loadVersions() {
+    this.setState({
+      versions: await currentVersions()
+    })
+  }
+
   componentDidMount() {
-    isRepositorie().then(console.log, console.log)
-    repositoriePath().then(console.log, console.log)
-    currentVersions().then(console.log, console.log)
-    branchs().then(console.log, console.log)
+    this.loadVersions()
   }
 
   render() {
+    const { versions } = this.state
+
     return (
-      <div>
-        History
+      <div className={styles.history}>
+        <div className={styles.versions}>
+          {
+            versions.map(
+              version => <Version key={version.hash} {...version} />
+            )
+          }
+        </div>
+        <Button onClick={this.loadVersions}>重新加载</Button>
       </div>
     )
   }

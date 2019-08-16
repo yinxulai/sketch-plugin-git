@@ -2,15 +2,15 @@ import * as React from 'react'
 import autobind from 'autobind-decorator'
 import Button from '../../components/button'
 import Checkbox from '../../components/checkbox'
-import { Branch } from 'controller/repositorie'
 import { BranchSelect } from '../../components/select'
 import Input, { Textarea } from '../../components/input'
+import { documentPath, exportPreview } from '../../controller/document'
+import { TBranch, createCommit, modifiedFiles, isModified } from '../../controller/repositorie'
 
 import * as styles from './style.less'
 
-
 type CommitState = {
-  branch: Branch,
+  branch: TBranch,
   title: string,
   context: string,
   isExportPreview: boolean,
@@ -30,7 +30,16 @@ export default class Commit extends React.Component<{}, CommitState> {
   }
 
   @autobind
-  handleBranchSelectChange(branch: Branch) {
+  clearState() {
+    this.setState({
+      branch: null,
+      title: null,
+      context: null
+    })
+  }
+
+  @autobind
+  handleBranchSelectChange(branch: TBranch) {
     this.setState({
       ...this.state,
       branch
@@ -70,8 +79,25 @@ export default class Commit extends React.Component<{}, CommitState> {
   }
 
   @autobind
-  handleSubmit() {
-    console.log(this.state)
+  async handleSubmit() {
+    const document = await documentPath()
+    const previews = await exportPreview()
+    const files = [document, ...previews]
+
+    if (!await isModified(...files)) {
+      alert('文件未修改')
+      return
+    }
+
+    const option = {
+      files, // 包含的文件
+      title: this.state.title, // 标题
+      message: this.state.context // 信息
+    }
+
+    createCommit(option)
+      .catch(err => alert(err))
+      .then(() => { alert('保存成功'), this.clearState() })
   }
 
   render() {
@@ -91,7 +117,7 @@ export default class Commit extends React.Component<{}, CommitState> {
           <Checkbox onChange={this.handleExportMarkedChange}>更新标注说明</Checkbox>
         </div>
         <div className={styles.fromItem}>
-          <Button onClick={this.handleSubmit}>提交</Button>
+          <Button onClick={this.handleSubmit}>保存</Button>
         </div>
       </div>
     )

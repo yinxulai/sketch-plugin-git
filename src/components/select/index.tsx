@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as styles from './style.less'
 import autobind from 'autobind-decorator'
-import { branchs, Branch } from '../../controller/repositorie'
+import { branchs, TBranch } from '../../controller/repositorie'
 
 export interface Props<T> extends Omit<React.InputHTMLAttributes<HTMLSelectElement>, 'onChange'> {
   items: T[]
@@ -40,12 +40,12 @@ export default class Select<T extends { id: string }> extends React.Component<Pr
   }
 }
 
-export interface BranchSelectProps extends Props<Branch> {
+export interface BranchSelectProps extends Props<TBranch> {
 
 }
 
 type BranchSelectState = {
-  branchs: Branch[]
+  branchs: TBranch[]
 }
 
 export class BranchSelect extends React.Component<Omit<BranchSelectProps, 'items'>, BranchSelectState> {
