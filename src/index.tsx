@@ -46,7 +46,7 @@ class CheckNotRepositorie extends React.Component<any, CheckNotRepositorieState>
             )
             : (
               <div className={styles.tip}>
-                当前项目未开启项目管理
+                当前项目未开启 GIT 版本管理
               </div>
             )
         }
