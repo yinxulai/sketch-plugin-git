@@ -81,25 +81,21 @@ export default class Commit extends React.Component<{}, CommitState> {
   @autobind
   async handleSubmit() {
     const document = await documentPath()
-    // const jsondata = await documentJSON()
-    const metadata = await documentMetadata()
-    const directory = await documentDirectoryPath()
-    const previews = await exportPreview(`${directory}/preview`)
-    const artboards = await exportArtboards(`${directory}/artboards`)
 
-    console.log(document, metadata, previews, artboards)
-
-    const files = [document]
-
-    if (!await isModified(...files)) {
-      alert('文件未修改')
+    if (!await isModified(document)) {
+      window.alert("该文档没有进行过任何修改")
       return
     }
 
+    const metadata = await documentMetadata() // 获取元数据
+    const directory = await documentDirectoryPath() // 获取文档所在目录
+    const previews = await exportPreview(`${directory}/preview`) // 导出 preview 到文档所在 preview 目录
+    const artboards = await exportArtboards(`${directory}/artboards`) // 导出 artboards 到文档所在 artboards 目录
+
     const option = {
-      files, // 包含的文件
       title: this.state.title, // 标题
-      message: this.state.context // 信息
+      message: this.state.context, // 信息
+      files: [document, previews, artboards], // 包含的文件
     }
 
     createCommit(option)

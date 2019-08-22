@@ -27,17 +27,17 @@ export async function documentName(): Promise<string> {
   return await window.documentName()
 }
 
-
 // 获取文档 json
 // TODO: BUG 进程卡死
 export async function documentJSON(): Promise<string> {
   const document = await documentPath()
-  const [status, output] = await window.runBashShell(`${sketchtool} dump ${document}`)
+  const dumpShell = `${sketchtool} dump ${document}`
+  const [status, output] = await window.runBashShell(dumpShell)
   if (status !== 0) {
     console.error('documentJSON throw error')
     throw output
   }
-  return output
+  return JSON.parse(output)
 }
 
 // 获取文档元信息
@@ -48,7 +48,7 @@ export async function documentMetadata(): Promise<string> {
     console.error('documentMetadata throw error')
     throw output
   }
-  return output
+  return JSON.parse(output)
 }
 
 
