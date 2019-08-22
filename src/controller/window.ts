@@ -25,3 +25,15 @@ export function closeWindow(): Promise<void> {
   }
   return window.closeWindow()
 }
+
+
+export function alert(title: string, context?: string): Promise<void> {
+  if (!window || !window.alert) {
+    throw 'closeWindow is not defined'
+  }
+  if (context) {
+    return (window as any).alert(title, context)
+  }
+
+  return (window as any).alert("提示", title)
+}

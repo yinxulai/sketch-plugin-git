@@ -4,10 +4,11 @@ import Button from '../../components/button'
 import Checkbox from '../../components/checkbox'
 import { BranchSelect } from '../../components/select'
 import Input, { Textarea } from '../../components/input'
-import { documentPath, exportPreview, exportArtboards, documentJSON, documentMetadata, documentDirectoryPath } from '../../controller/document'
-import { TBranch, createCommit, modifiedFiles, isModified } from '../../controller/repositorie'
-
+import { alert } from '../../controller/window'
+import { TBranch, createCommit, isModified } from '../../controller/repositorie'
+import { documentPath, exportPreview, exportArtboards, documentMetadata, documentDirectoryPath } from '../../controller/document'
 import * as styles from './style.less'
+
 
 type CommitState = {
   branch: TBranch,
@@ -83,7 +84,7 @@ export default class Commit extends React.Component<{}, CommitState> {
     const document = await documentPath()
 
     if (!await isModified(document)) {
-      window.alert("该文档没有进行过任何修改")
+      alert('保存出错', "该文档没有进行过任何修改")
       return
     }
 
