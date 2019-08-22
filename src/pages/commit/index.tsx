@@ -4,7 +4,7 @@ import Button from '../../components/button'
 import Checkbox from '../../components/checkbox'
 import { BranchSelect } from '../../components/select'
 import Input, { Textarea } from '../../components/input'
-import { documentPath, exportPreview } from '../../controller/document'
+import { documentPath, exportPreview, exportArtboards, documentJSON, documentMetadata, documentDirectoryPath } from '../../controller/document'
 import { TBranch, createCommit, modifiedFiles, isModified } from '../../controller/repositorie'
 
 import * as styles from './style.less'
@@ -81,8 +81,15 @@ export default class Commit extends React.Component<{}, CommitState> {
   @autobind
   async handleSubmit() {
     const document = await documentPath()
-    const previews = await exportPreview()
-    const files = [document, ...previews]
+    // const jsondata = await documentJSON()
+    const metadata = await documentMetadata()
+    const directory = await documentDirectoryPath()
+    const previews = await exportPreview(`${directory}/preview`)
+    const artboards = await exportArtboards(`${directory}/artboards`)
+
+    console.log(document, metadata, previews, artboards)
+
+    const files = [document]
 
     if (!await isModified(...files)) {
       alert('文件未修改')

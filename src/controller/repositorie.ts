@@ -53,6 +53,7 @@ export async function repositoriePath(): Promise<string> {
   const dirPath = await window.documentDirectoryPath()
   const [status, message] = await window.runBashShell(`git -C ${dirPath} rev-parse --show-toplevel`)
   if (status !== 0) {
+    console.error('repositoriePath throw error')
     throw message
   }
 
@@ -91,6 +92,7 @@ export async function currentVersions(): Promise<TVersion[]> {
   const [status, output] = await git('log', `--pretty=format:"${format}"`, filePath)
   if (status !== 0) {
     // 执行错误
+    console.error('currentVersions throw error')
     throw output
   }
 
@@ -139,6 +141,7 @@ export async function branchs(): Promise<TBranch[]> {
   const [status, rawData] = await git(`branch`)
   if (status !== 0) {
     // 执行错误
+    console.error('branchs throw error')
     throw rawData
   }
 
