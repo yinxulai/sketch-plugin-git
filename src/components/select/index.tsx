@@ -48,6 +48,7 @@ type BranchSelectState = {
   branchs: TBranch[]
 }
 
+// 分支选择器
 export class BranchSelect extends React.Component<Omit<BranchSelectProps, 'items'>, BranchSelectState> {
   constructor(props: any) {
     super(props)
