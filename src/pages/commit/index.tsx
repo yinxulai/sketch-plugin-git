@@ -40,6 +40,19 @@ export default class Commit extends React.Component<{}, CommitState> {
   }
 
   @autobind
+  validateInput() {
+    if (!this.state.title) {
+      alert('输入错误', "请输入本次修改的标题。")
+      return false
+    }
+    if (!this.state.context) {
+      alert('输入错误', "请输入本次修改的内容、正确友好的内容更讨人喜欢。")
+      return false
+    }
+    return true
+  }
+
+  @autobind
   handleBranchSelectChange(branch: TBranch) {
     this.setState({
       ...this.state,
@@ -85,9 +98,17 @@ export default class Commit extends React.Component<{}, CommitState> {
     const document = await documentPath()
     const directory = await documentDirectoryPath() // 获取文档所在目录
 
-    if (!await isModified(document)) {
-      alert('保存出错', "该文档没有进行过任何修改")
+    // 输入检查没通过
+    if (!this.validateInput()) {
       return
+    }
+
+
+    // 检查文件是否修改了
+    if (await isModified(document)) {
+      files.push(document)
+    } else {
+      alert('保存出错', "该文档没有进行过任何修改")
     }
 
     if (this.state.isExportMarked) {
