@@ -10,13 +10,8 @@ async function git(...args: string[]): Promise<[number, string]> {
 // 检查文件是否发生过修改
 export async function isModified(...files: string[]): Promise<boolean> {
   const modifieds = await modifiedFiles()
-  const notModifieds = modifieds.filter(file => !files.includes(file))
-  if (notModifieds && notModifieds.length) {
-    return false
-  }
-  return true
+  return modifieds.some(modifile => files.some(file => modifile.includes(file)))
 }
-
 
 // 获取所有发生过改变的文件
 export async function modifiedFiles(): Promise<string[]> {
@@ -34,7 +29,6 @@ export async function modifiedFiles(): Promise<string[]> {
   // TODO: 清除回车
   return files.map(file => `${root}/${file.replace(/[\r\n]/g, "").split('modified:   ')[1]}`)
 }
-
 
 // 判断当前的文档所在目录 是否是一个有效的 repositorie 仓库
 export async function isRepositorie(): Promise<boolean> {

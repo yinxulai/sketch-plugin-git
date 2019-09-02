@@ -42,3 +42,15 @@ function randomString(len: number): string {
   }
   return pwd;
 }
+
+
+export interface ArtboardsProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'onChange'> {
+  onChange?: (value: string[], ) => void
+}
+
+// 画板选择器
+export class ArtboardsCheckBox extends React.Component<ArtboardsProps> {
+  componentDidMount() {
+
+  }
+}
