@@ -779,6 +779,11 @@
     loader-utils "^1.0.2"
     schema-utils "^0.4.5"
 
+"@skpm/fs@^0.2.5":
+  version "0.2.5"
+  resolved "https://registry.yarnpkg.com/@skpm/fs/-/fs-0.2.5.tgz#90ef95c5e8b27cb28b855f41f170db9ff71c7fb2"
+  integrity sha512-zyIwsSQwmdVYZPi1frUUkXfm6pYleulNFKxGDrMFAVHAerUMMBxVdbJsLd1xh1PFHKh505vUr7yTzgXlQXv0Xw==
+
 "@skpm/internal-utils@^0.1.15":
   version "0.1.15"
   resolved "https://registry.yarnpkg.com/@skpm/internal-utils/-/internal-utils-0.1.15.tgz#28ac8fac00552897e907e06c4b08861283025d5e"

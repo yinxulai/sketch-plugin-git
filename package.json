@@ -37,6 +37,7 @@
     "typescript": "^3.5.3"
   },
   "dependencies": {
+    "@skpm/fs": "^0.2.5",
     "autobind-decorator": "^2.4.0",
     "classnames": "^2.2.6",
     "react": "^16.8.6",
