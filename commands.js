@@ -18,8 +18,8 @@ export function openCurrentDocumentFolderInFinder(context) {
 export function openCurrentRepositorieFolderInFinder(context) {
   const path = documentDirectoryPath(context.document)
   const [status, message] = runBashShell(`
-    roowdir=\`git -C ${path} rev-parse --show-toplevel\`;
-    open $roowdir;
+    rootdir=\`git -C ${path} rev-parse --show-toplevel\`;
+    open $rootdir;
   `)
 
   if (status !== 0) {
@@ -46,10 +46,16 @@ export function history(context) {
   window.setLocationHash('history')
 }
 
+export function setting(context) {
+  const window = new Window(context, { title: "设置", frame: false })
+  window.load(rootview)
+  window.setLocationHash('setting')
+}
+
 export function about(context) {
   const window = new Window(context, { title: "关于作者", frame: false })
   window.load(rootview)
-  window.setLocationHash('commit')
+  window.setLocationHash('about')
 }
 
 export default commit

@@ -51,7 +51,6 @@ export async function documentMetadata(): Promise<string> {
   return JSON.parse(output)
 }
 
-
 // 导出 Artboards
 // 返回导出的资源路径
 // items 要导出的图层 id

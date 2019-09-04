@@ -9,7 +9,6 @@ import { TBranch, createCommit, isModified } from '../../controller/repositorie'
 import { documentPath, exportPreview, exportArtboards, documentMetadata, documentDirectoryPath } from '../../controller/document'
 import * as styles from './style.less'
 
-
 type CommitState = {
   branch: TBranch,
   title: string,
@@ -134,7 +133,7 @@ export default class Commit extends React.Component<{}, CommitState> {
 
   render() {
     return (
-      <div className={styles.containerFluid}>
+      <div className={styles.container}>
         <div className={styles.fromItem}>
           <BranchSelect onChange={this.handleBranchSelectChange}>选择环境</BranchSelect>
         </div>

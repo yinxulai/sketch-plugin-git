@@ -4,7 +4,12 @@ async function git(...args: string[]): Promise<[number, string]> {
   if (!window || !window.runBashShell) {
     throw 'runBashShell is not defined'
   }
-  return await window.runBashShell(`git -C ${await repositoriePath()} ${args.join(' ')}`)
+
+  // 指定账号 或者密码
+  // 指定 ssh key
+  // GIT_SSH_COMMAND="ssh -i ~/.ssh/id_rsa_example" git clone example
+
+  return await window.runBashShell(` git -C ${await repositoriePath()} ${args.join(' ')}`)
 }
 
 // 检查文件是否发生过修改

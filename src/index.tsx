@@ -1,5 +1,4 @@
 import * as React from 'react'
-import classNames from 'classnames'
 import * as ReactDOM from 'react-dom'
 import { HashRouter, Route } from 'react-router-dom'
 import { isRepositorie } from './controller/repositorie'
@@ -10,6 +9,7 @@ import About from './pages/about'
 import Commit from './pages/commit'
 import History from './pages/history'
 import Toolbar from './pages/toolbar'
+import Setting from './pages/setting'
 
 import * as styles from './style.less'
 
@@ -70,6 +70,7 @@ export default class App extends React.Component {
               <Route path="/commit" component={Commit} />
               <Route path="/history" component={History} />
               <Route path="/toolbar" component={Toolbar} />
+              <Route path="/setting" component={Setting} />
             </Route>
           </HashRouter>
         </CheckNotRepositorie>
