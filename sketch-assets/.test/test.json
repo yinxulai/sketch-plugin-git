@@ -1,0 +1,283 @@
+{
+  "<class>" : "MSDocumentData",
+  "assets" : {
+    "<class>" : "MSAssetCollection",
+    "colorAssets" : [
+
+    ],
+    "gradientAssets" : [
+
+    ],
+    "imageCollection" : {
+      "<class>" : "MSImageCollection",
+      "images" : [
+
+      ]
+    },
+    "images" : [
+
+    ]
+  },
+  "colorSpace" : 0,
+  "currentPageIndex" : 0,
+  "foreignLayerStyles" : [
+
+  ],
+  "foreignSymbols" : [
+
+  ],
+  "foreignTextStyles" : [
+
+  ],
+  "layerStyles" : {
+    "<class>" : "MSSharedStyleContainer",
+    "objects" : [
+
+    ]
+  },
+  "layerSymbols" : {
+    "<class>" : "MSSymbolContainer",
+    "objects" : [
+
+    ]
+  },
+  "layerTextStyles" : {
+    "<class>" : "MSSharedTextStyleContainer",
+    "objects" : [
+
+    ]
+  },
+  "objectID" : "8B93D7C3-E053-48CC-8967-4F6593C5A14A",
+  "pages" : [
+    {
+      "<class>" : "MSPage",
+      "booleanOperation" : -1,
+      "clippingMaskMode" : 0,
+      "exportOptions" : {
+        "<class>" : "MSExportOptions",
+        "exportFormats" : [
+
+        ],
+        "includedLayerIds" : [
+
+        ],
+        "layerOptions" : 0,
+        "shouldTrim" : 0
+      },
+      "frame" : {
+        "<class>" : "MSRect",
+        "constrainProportions" : 0,
+        "height" : 0,
+        "width" : 0,
+        "x" : 0,
+        "y" : 0
+      },
+      "groupLayout" : {
+        "<class>" : "MSFreeformGroupLayout"
+      },
+      "hasClickThrough" : 1,
+      "hasClippingMask" : 0,
+      "horizontalRulerData" : {
+        "<class>" : "MSRulerData",
+        "base" : 0,
+        "guides" : [
+
+        ]
+      },
+      "includeInCloudUpload" : 1,
+      "isFixedToViewport" : 0,
+      "isFlippedHorizontal" : 0,
+      "isFlippedVertical" : 0,
+      "isLocked" : 0,
+      "isVisible" : 1,
+      "layerListExpandedType" : 0,
+      "layers" : [
+        {
+          "<class>" : "MSArtboardGroup",
+          "backgroundColor" : {
+            "<class>" : "MSColor",
+            "value" : "#FFFFFF"
+          },
+          "booleanOperation" : -1,
+          "clippingMaskMode" : 0,
+          "exportOptions" : {
+            "<class>" : "MSExportOptions",
+            "exportFormats" : [
+
+            ],
+            "includedLayerIds" : [
+
+            ],
+            "layerOptions" : 0,
+            "shouldTrim" : 0
+          },
+          "frame" : {
+            "<class>" : "MSRect",
+            "constrainProportions" : 0,
+            "height" : 280,
+            "width" : 290,
+            "x" : 37,
+            "y" : 75
+          },
+          "groupLayout" : {
+            "<class>" : "MSFreeformGroupLayout"
+          },
+          "hasBackgroundColor" : 0,
+          "hasClickThrough" : 1,
+          "hasClippingMask" : 0,
+          "horizontalRulerData" : {
+            "<class>" : "MSRulerData",
+            "base" : 0,
+            "guides" : [
+
+            ]
+          },
+          "includeBackgroundColorInExport" : 1,
+          "includeInCloudUpload" : 1,
+          "isFixedToViewport" : 0,
+          "isFlippedHorizontal" : 0,
+          "isFlippedVertical" : 0,
+          "isFlowHome" : 0,
+          "isLocked" : 0,
+          "isVisible" : 1,
+          "layerListExpandedType" : 0,
+          "name" : "画板",
+          "nameIsFixed" : 0,
+          "objectID" : "159E53CD-25BB-49FC-AA72-3C53441BC657",
+          "resizesContent" : 0,
+          "resizingConstraint" : 63,
+          "resizingType" : 0,
+          "rotation" : 0,
+          "shouldBreakMaskChain" : 1,
+          "style" : {
+            "<class>" : "MSStyle",
+            "blur" : {
+              "<class>" : "MSStyleBlur",
+              "center" : {
+                "x" : 0.5,
+                "y" : 0.5
+              },
+              "isEnabled" : 0,
+              "motionAngle" : 0,
+              "radius" : 10,
+              "saturation" : 1,
+              "type" : 0
+            },
+            "borderOptions" : {
+              "<class>" : "MSStyleBorderOptions",
+              "dashPattern" : [
+
+              ],
+              "isEnabled" : 0,
+              "lineCapStyle" : 0,
+              "lineJoinStyle" : 0
+            },
+            "borders" : [
+
+            ],
+            "colorControls" : {
+              "<class>" : "MSStyleColorControls",
+              "brightness" : 0,
+              "contrast" : 1,
+              "hue" : 0,
+              "isEnabled" : 0,
+              "saturation" : 1
+            },
+            "contextSettings" : {
+              "<class>" : "MSGraphicsContextSettings",
+              "blendMode" : 0,
+              "opacity" : 1
+            },
+            "endMarkerType" : 0,
+            "fills" : [
+
+            ],
+            "innerShadows" : [
+
+            ],
+            "miterLimit" : 10,
+            "shadows" : [
+
+            ],
+            "startMarkerType" : 0,
+            "windingRule" : 1
+          },
+          "verticalRulerData" : {
+            "<class>" : "MSRulerData",
+            "base" : 0,
+            "guides" : [
+
+            ]
+          }
+        }
+      ],
+      "name" : "页面",
+      "nameIsFixed" : 1,
+      "objectID" : "45B43DF4-6F3A-4E56-A51C-4AF24161CE03",
+      "resizingConstraint" : 63,
+      "resizingType" : 0,
+      "rotation" : 0,
+      "shouldBreakMaskChain" : 0,
+      "style" : {
+        "<class>" : "MSStyle",
+        "blur" : {
+          "<class>" : "MSStyleBlur",
+          "center" : {
+            "x" : 0.5,
+            "y" : 0.5
+          },
+          "isEnabled" : 0,
+          "motionAngle" : 0,
+          "radius" : 10,
+          "saturation" : 1,
+          "type" : 0
+        },
+        "borderOptions" : {
+          "<class>" : "MSStyleBorderOptions",
+          "dashPattern" : [
+
+          ],
+          "isEnabled" : 0,
+          "lineCapStyle" : 0,
+          "lineJoinStyle" : 0
+        },
+        "borders" : [
+
+        ],
+        "colorControls" : {
+          "<class>" : "MSStyleColorControls",
+          "brightness" : 0,
+          "contrast" : 1,
+          "hue" : 0,
+          "isEnabled" : 0,
+          "saturation" : 1
+        },
+        "contextSettings" : {
+          "<class>" : "MSGraphicsContextSettings",
+          "blendMode" : 0,
+          "opacity" : 1
+        },
+        "endMarkerType" : 0,
+        "fills" : [
+
+        ],
+        "innerShadows" : [
+
+        ],
+        "miterLimit" : 10,
+        "shadows" : [
+
+        ],
+        "startMarkerType" : 0,
+        "windingRule" : 1
+      },
+      "verticalRulerData" : {
+        "<class>" : "MSRulerData",
+        "base" : 0,
+        "guides" : [
+
+        ]
+      }
+    }
+  ]
+}
