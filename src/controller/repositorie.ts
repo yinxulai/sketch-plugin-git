@@ -32,6 +32,7 @@ export async function pull() {
 
 // 检查文件是否发生过修改
 export async function isModified(...files: string[]): Promise<boolean> {
+    // TODO: git diff 命令也可以实现
   const modifieds = await modifiedFiles()
   return modifieds.some(modifile => files.some(file => modifile.includes(file)))
 }

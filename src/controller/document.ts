@@ -35,7 +35,7 @@ export async function documentName(): Promise<string> {
 // items 要导出的图层 id
 export async function exportArtboards(path?: string, items?: string): Promise<string> {
   const document = await documentPath()
-  const [status, output] = await runBashShell(`mkdir -p ${path} && ${sketchtool} export artboards ${document} --output=${path}`)
+  const [status, output] = await runBashShell(`rm -rf ${path} && mkdir -p ${path} && ${sketchtool} export artboards ${document} --output=${path}`)
   if (status !== 0) {
     console.error('exportArtboards throw error')
     throw output
@@ -47,7 +47,7 @@ export async function exportArtboards(path?: string, items?: string): Promise<st
 // 返回导出的资源路径
 export async function exportPreview(path?: string, items?: string): Promise<string> {
   const document = await documentPath()
-  const [status, output] = await runBashShell(`mkdir -p ${path} && ${sketchtool} export preview ${document} --output=${path}`)
+  const [status, output] = await runBashShell(`rm -rf ${path} && mkdir -p ${path} && ${sketchtool} export preview ${document} --output=${path}`)
   if (status !== 0) {
     console.error('exportPreview throw error')
     throw output
@@ -61,7 +61,7 @@ export async function exportJSON(path: string): Promise<string> {
   const name = await documentName()
   const document = await documentPath()
   const exportFileNamePath = `${path}/${cupSuffix(name)}.json`
-  const dumpShell = `mkdir -p ${path} && ${sketchtool} dump ${document} > ${exportFileNamePath}`
+  const dumpShell = `rm -rf ${path} && mkdir -p ${path} && ${sketchtool} dump ${document} > ${exportFileNamePath}`
   const [status, output] = await runBashShell(dumpShell)
   if (status !== 0) {
     console.error('documentJSON throw error')

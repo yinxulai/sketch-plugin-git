@@ -1,6 +1,7 @@
 import * as React from 'react'
 import autobind from 'autobind-decorator'
 import { cupSuffix } from '../../utils/string'
+import { handleError } from '../../utils/decoration'
 import { alert } from '../../controller/window'
 import { TBranch, push, createCommit, isModified } from '../../controller/repositorie'
 import { documentPath, exportArtboards, documentDirectoryPath, exportJSON, documentName } from '../../controller/document'
@@ -94,16 +95,19 @@ export default class Commit extends React.Component<{}, CommitState> {
   }
 
   @autobind
+  @handleError
   async handleSubmit() {
     const files = [] // 需要提交的文件
     const name = await documentName()
     const pureName = cupSuffix(name)
     const document = await documentPath()
     const directory = await documentDirectoryPath() // 获取文档所在目录
+
     // 输入检查没通过
     if (!this.validateInput()) {
       return
     }
+
 
     // 检查文件是否修改了
     if (await isModified(document)) {

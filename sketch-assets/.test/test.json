@@ -164,7 +164,7 @@
                 "constrainProportions" : 0,
                 "height" : 247,
                 "width" : 230,
-                "x" : 38,
+                "x" : 30,
                 "y" : 17
               },
               "hasClippingMask" : 0,
@@ -466,11 +466,11 @@
                           "tailIndent" : 0
                         }
                       },
-                      "text" : "文本-内容",
+                      "text" : "文本—内容",
                       "textStyleVerticalAlignmentKey" : 0
                     }
                   ],
-                  "text" : "文本-内容"
+                  "text" : "文本—内容"
                 }
               },
               "automaticallyDrawOnUnderlyingPath" : 0,
@@ -492,13 +492,13 @@
                 "<class>" : "MSRect",
                 "constrainProportions" : 0,
                 "height" : 20,
-                "width" : 65,
-                "x" : 113,
+                "width" : 70,
+                "x" : 110,
                 "y" : 130
               },
               "glyphBounds" : {
                 "height" : 14,
-                "width" : 64,
+                "width" : 70,
                 "x" : 0,
                 "y" : 3
               },
