@@ -418,7 +418,7 @@
                   "<class>" : "NSConcreteAttributedString",
                   "attributes" : [
                     {
-                      "length" : 5,
+                      "length" : 6,
                       "location" : 0,
                       "MSAttributedStringColorAttribute" : {
                         "<class>" : "MSImmutableColor",
@@ -466,11 +466,11 @@
                           "tailIndent" : 0
                         }
                       },
-                      "text" : "文本—内容",
+                      "text" : "文本——内容",
                       "textStyleVerticalAlignmentKey" : 0
                     }
                   ],
-                  "text" : "文本—内容"
+                  "text" : "文本——内容"
                 }
               },
               "automaticallyDrawOnUnderlyingPath" : 0,
@@ -492,13 +492,13 @@
                 "<class>" : "MSRect",
                 "constrainProportions" : 0,
                 "height" : 20,
-                "width" : 70,
-                "x" : 110,
+                "width" : 84,
+                "x" : 103,
                 "y" : 130
               },
               "glyphBounds" : {
                 "height" : 14,
-                "width" : 70,
+                "width" : 84,
                 "x" : 0,
                 "y" : 3
               },
