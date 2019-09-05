@@ -12,6 +12,24 @@ async function git(...args: string[]): Promise<[number, string]> {
   return await window.runBashShell(` git -C ${await repositoriePath()} ${args.join(' ')}`)
 }
 
+// 推送本地分支
+export async function push() {
+  const [status, message] = await git('push')
+  if (status !== 0) {
+    console.error('push throw error')
+    throw message
+  }
+}
+
+// 同步线上分支
+export async function pull() {
+  const [status, message] = await git('pull')
+  if (status !== 0) {
+    console.error('pull throw error')
+    throw message
+  }
+}
+
 // 检查文件是否发生过修改
 export async function isModified(...files: string[]): Promise<boolean> {
   const modifieds = await modifiedFiles()
@@ -69,7 +87,7 @@ export type TVersion = {
 }
 
 // 当前的文档的历史信息
-export async function currentVersions(): Promise<TVersion[]> {
+export async function versions(): Promise<TVersion[]> {
   // %H 提交对象（commit）的完整哈希字串
   // %h 提交对象的简短哈希字串
   // %T 树对象（tree）的完整哈希字串

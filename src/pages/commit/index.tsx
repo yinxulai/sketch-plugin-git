@@ -2,7 +2,7 @@ import * as React from 'react'
 import autobind from 'autobind-decorator'
 import { cupSuffix } from '../../utils/string'
 import { alert } from '../../controller/window'
-import { TBranch, createCommit, isModified } from '../../controller/repositorie'
+import { TBranch, push, createCommit, isModified } from '../../controller/repositorie'
 import { documentPath, exportArtboards, documentDirectoryPath, exportJSON, documentName } from '../../controller/document'
 import Button from '../../components/button'
 import Checkbox from '../../components/checkbox'
@@ -35,8 +35,8 @@ export default class Commit extends React.Component<{}, CommitState> {
   clearState() {
     this.setState({
       branch: null,
-      title: null,
-      context: null
+      title: "",
+      context: ""
     })
   }
 
@@ -123,9 +123,10 @@ export default class Commit extends React.Component<{}, CommitState> {
       message: this.state.context, // 信息
     }
 
-    createCommit(option)
-      .catch(err => alert(err))
-      .then(() => { alert('保存成功'), this.clearState() })
+    await createCommit(option)
+    await push()
+    this.clearState()
+    alert('保存成功')
   }
 
   render() {

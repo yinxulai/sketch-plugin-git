@@ -2,7 +2,7 @@ import * as React from 'react'
 import autobind from 'autobind-decorator'
 import Button from '../../components/button'
 import Version from '../../components/version'
-import { currentVersions, TVersion } from '../../controller/repositorie'
+import { versions, TVersion } from '../../controller/repositorie'
 
 import * as styles from './style.less'
 
@@ -21,7 +21,7 @@ export default class History extends React.Component<any, HistoryState> {
   @autobind
   async loadVersions() {
     this.setState({
-      versions: await currentVersions()
+      versions: await versions()
     })
   }
 
