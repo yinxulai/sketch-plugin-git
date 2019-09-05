@@ -47,7 +47,7 @@ export function history(context) {
 }
 
 export function setting(context) {
-  const window = new Window(context, { title: "设置", frame: false })
+  const window = new Window(context, { title: "设置", height: 240, width: 320, frame: false })
   window.load(rootview)
   window.setLocationHash('setting')
 }
