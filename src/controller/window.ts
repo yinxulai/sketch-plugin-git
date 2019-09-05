@@ -26,6 +26,12 @@ export function closeWindow(): Promise<void> {
   return window.closeWindow()
 }
 
+export function runBashShell(script: string): Promise<[number, string]>{
+  if (!window || !window.closeWindow) {
+    throw 'closeWindow is not defined'
+  }
+  return window.runBashShell(script)
+}
 
 export function alert(title: string, context?: string): Promise<void> {
   if (!window || !window.alert) {
